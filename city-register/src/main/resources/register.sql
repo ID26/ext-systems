@@ -65,16 +65,17 @@ CREATE TABLE cr_address_person  (
     person_id integer not   null,
     start_date  date    not null,
     end_date    date,
+    temporal boolean DEFAULT false,
     PRIMARY KEY (person_address_id),
     FOREIGN KEY (address_id) REFERENCES cr_address(address_id) ON DELETE RESTRICT,
     FOREIGN KEY (person_id) REFERENCES cr_person(person_id) ON DELETE RESTRICT
     );
 
-INSERT INTO cr_address_person(address_id, person_id, start_date, end_date) VALUES
-    (1, 1, '2006-07-06', null),
-    (1, 2, '2006-07-06', null),
-    (1, 3, '2010-02-01', null),
-    (1, 4, '2012-03-06', null);
+INSERT INTO cr_address_person(address_id, person_id, start_date, end_date, temporal) VALUES
+    (1, 1, '2006-07-06', null, false),
+    (1, 2, '2006-07-06', null, false),
+    (1, 3, '2010-02-01', null, false),
+    (1, 4, '2012-03-06', null, false);
 
 -- 1. РАЙОН
 -- 2. УЛИЦА
