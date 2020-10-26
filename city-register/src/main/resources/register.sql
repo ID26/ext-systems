@@ -13,6 +13,7 @@ CREATE TABLE cr_district(
 
 INSERT INTO cr_district(district_code, district_name) VALUES
 (1, 'Октябрьский');
+(2, 'Первомайский');
 
 CREATE TABLE cr_street(
 	street_code integer not null,
@@ -22,6 +23,7 @@ CREATE TABLE cr_street(
 
 INSERT INTO cr_street(street_code, street_name) VALUES
 (1, 'Таганрогская');
+(2, 'Днепровский');
 
 CREATE TABLE cr_address(
 	address_id SERIAL,
@@ -37,6 +39,7 @@ CREATE TABLE cr_address(
 
 INSERT INTO cr_address(district_code, street_code, building, extension, apartment) VALUES
 (1, 1, '124', '3', '17');
+(2, 2, '120', 'Б', '208');
 
 CREATE TABLE cr_person(
     person_id SERIAL,
@@ -55,7 +58,7 @@ CREATE TABLE cr_person(
 INSERT INTO cr_person(sur_name, given_name, patronymic, date_of_birth, passport_seria,
                         passport_number, passport_date, certificate_number, certificate_date) VALUES
 ('Денисов', 'Иван', 'Александрович', '1979-10-17', '0000', '123456', '1995-10-17', null, null),
-('Денисовa', 'Елена', 'Владимировна', '1980-01-17', '1111', '123456', '1996-01-17', null, null),
+('Денисова', 'Елена', 'Владимировна', '1980-01-17', '1111', '123456', '1996-01-17', null, null),
 ('Денисов', 'Никита', 'Иванович', '2010-02-01', null, null, null, '12345678', '2010-02-01'),
 ('Денисова', 'Алена', 'Ивановна', '2012-03-06', null, null, null, '23456789', '2012-03-06');
 
@@ -72,7 +75,7 @@ CREATE TABLE cr_address_person  (
     );
 
 INSERT INTO cr_address_person(address_id, person_id, start_date, end_date, temporal) VALUES
-    (1, 1, '2006-07-06', null, false),
+    (2, 1, '2006-03-06', null, false),
     (1, 2, '2006-07-06', null, false),
     (1, 3, '2010-02-01', null, false),
     (1, 4, '2012-03-06', null, false);

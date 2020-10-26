@@ -3,20 +3,29 @@ package edu.javacourse.city.domain;
 import java.time.LocalDate;
 
 public class PersonRequest {
-    private String serName;
+    private String surName;
     private String givenName;
     private String patronymic;
     private LocalDate dateOfBirth;
+    private Integer streetCode;
     private String building;
     private String extension;
     private String apartment;
 
-    public String getSerName() {
-        return serName;
+    public Integer getStreetCode() {
+        return streetCode;
     }
 
-    public void setSerName(String serName) {
-        this.serName = serName;
+    public void setStreetCode(Integer streetCode) {
+        this.streetCode = streetCode;
+    }
+
+    public String getSurName() {
+        return surName;
+    }
+
+    public void setSurName(String surName) {
+        this.surName = surName;
     }
 
     public String getGivenName() {
