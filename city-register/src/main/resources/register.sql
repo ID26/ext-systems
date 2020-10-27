@@ -12,7 +12,7 @@ CREATE TABLE cr_district(
 );
 
 INSERT INTO cr_district(district_code, district_name) VALUES
-(1, 'Октябрьский');
+(1, 'Октябрьский'),
 (2, 'Первомайский');
 
 CREATE TABLE cr_street(
@@ -22,8 +22,9 @@ CREATE TABLE cr_street(
 );
 
 INSERT INTO cr_street(street_code, street_name) VALUES
-(1, 'Таганрогская');
-(2, 'Днепровский');
+(1, 'Таганрогская'),
+(2, 'Днепровский'),
+(3, '8-я Турнирная');
 
 CREATE TABLE cr_address(
 	address_id SERIAL,
@@ -38,8 +39,9 @@ CREATE TABLE cr_address(
 );
 
 INSERT INTO cr_address(district_code, street_code, building, extension, apartment) VALUES
-(1, 1, '124', '3', '17');
-(2, 2, '120', 'Б', '208');
+(1, 1, '124', '3', '17'),
+(2, 2, '120', 'Б', '208'),
+(1, 3, '27', null, null);
 
 CREATE TABLE cr_person(
     person_id SERIAL,
@@ -77,8 +79,8 @@ CREATE TABLE cr_address_person  (
 INSERT INTO cr_address_person(address_id, person_id, start_date, end_date, temporal) VALUES
     (2, 1, '2006-03-06', null, false),
     (1, 2, '2006-07-06', null, false),
-    (1, 3, '2010-02-01', null, false),
-    (1, 4, '2012-03-06', null, false);
+    (1, 3, '2010-02-02', null, false),
+    (3, 4, '2012-03-07', null, false);
 
 -- 1. РАЙОН
 -- 2. УЛИЦА

@@ -38,10 +38,27 @@ public class PersonCheckDaoTest {
         pr.setGivenName("Иван");
         pr.setPatronymic("Александрович");
         pr.setDateOfBirth(LocalDate.of(1979, 10, 17));
-        pr.setStreetCode(1);
-        pr.setBuilding("124");
-        pr.setExtension("3");
-        pr.setApartment("17");
+        pr.setStreetCode(2);
+        pr.setBuilding("120");
+        pr.setExtension("Б");
+        pr.setApartment("208");
+
+        PersonCheckDao dao = new PersonCheckDao();
+//        dao.setConnectionBuilder(new DirectConnectionBuilder());
+        PersonResponse ps = dao.checkPerson(pr);
+        assertTrue(ps.isRegistered());
+        assertFalse(ps.isTemporal());
+    }
+
+    @Test
+    public void checkPerson3() throws PersonCheckException {
+        PersonRequest pr = new PersonRequest();
+        pr.setSurName("Денисова");
+        pr.setGivenName("Алена");
+        pr.setPatronymic("Ивановна");
+        pr.setDateOfBirth(LocalDate.of(2012, 03, 06));
+        pr.setStreetCode(3);
+        pr.setBuilding("27");
 
         PersonCheckDao dao = new PersonCheckDao();
 //        dao.setConnectionBuilder(new DirectConnectionBuilder());
